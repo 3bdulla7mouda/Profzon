@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموسوعة الشاملة للذكاء الفائق - ASI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #050a0f;
+            --card-bg: #0b1118;
+            --main-green: #00ff88;
+            --accent-red: #ff4444;
+            --glow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+        /* الهيدر */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--main-green);
+            text-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            margin-bottom: 10px;
+        }
+
+        /* العناوين الجانبية */
+        .section-title {
+            font-size: 2rem;
+            color: var(--main-green);
+            border-right: 5px solid var(--main-green);
+            padding-right: 15px;
+            margin: 60px 0 30px;
+        }
+
+        /* الكروت الكبيرة */
+        .mega-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-radius: 25px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .mega-card h3 { color: var(--main-green); font-size: 1.6rem; margin-top: 0; }
+
+        /* الشبكة المعلوماتية */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .mini-card {
+            background: rgba(255,255,255,0.02);
+            padding: 25px;
+            border-radius: 15px;
+            border-bottom: 3px solid var(--main-green);
+            transition: 0.3s;
+        }
+
+        .mini-card:hover { background: rgba(0, 255, 136, 0.05); transform: translateY(-5px); }
+
+        .mini-card i { font-size: 2rem; color: var(--main-green); margin-bottom: 15px; }
+
+        /* مقارنة */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 20px;
+            text-align: right;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .comparison-table th { background: rgba(0, 255, 136, 0.1); color: var(--main-green); }
+
+        /* صندوق التحذير */
+        .danger-zone {
+            border: 2px solid var(--accent-red);
+            background: rgba(255, 68, 68, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .danger-zone h3 { color: var(--accent-red); }
+
+        /* سهم العودة */
+        .back-arrow {
+            position: fixed; bottom: 30px; left: 100px;
+            width: 60px; height: 60px;
+            border: 2px solid var(--main-green);
+            color: var(--main-green); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            text-decoration: none; font-size: 24px; transition: 0.3s;
+            background: var(--bg-dark); z-index: 1000;
+        }
+        .back-arrow:hover { background: var(--main-green); color: var(--bg-dark); box-shadow: 0 0 20px var(--main-green); }
+/* تنسيق الزر الثلاثي الأبعاد */
+.home-button-3d {
+    /* التثبيت في زاوية الشاشة */
+    position: fixed;
+    bottom: 30px; /* المسافة من الأسفل */
+    left: 25px;   /* المسافة من اليسار (لتجنب شريط التمرير) */
+    z-index: 1000;
+    
+    /* التصميم والحجم */
+    width: 60px;
+    height: 60px;
+    
+    /* 1. الإطار المعدني الخارجي */
+    background: linear-gradient(135deg, #e0e0e0 0%, #a0a0a0 45%, #e0e0e0 100%);
+    border-radius: 50%;
+    
+    /* محاذاة الأيقونة للداخل */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* 2. إضافة تأثيرات المعدن والتوهج من الصورة الأصلية */
+    box-shadow: 
+        /* الإطار المعدني اللامع */
+        0 0 0 1px rgba(255, 255, 255, 0.4),
+        /* الظل الثلاثي الأبعاد على الشاشة */
+        0 6px 15px rgba(0, 0, 0, 0.5), 
+        /* توهج خفيف من الخلف يناسب تصميمك */
+        0 0 20px rgba(0, 255, 136, 0.3);
+    
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    overflow: hidden; /* لضمان عدم خروج التأثيرات عن الدائرة */
+}
+
+/* 3. القلب الأزرق (الداخل) */
+.home-button-3d::before {
+    content: '';
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    /* تدرج لوني أزرق مطابق للصورة */
+    background: radial-gradient(circle, #7cc9ff 0%, #1e90ff 100%);
+    border-radius: 50%;
+    
+    /* حدود معدنية رفيعة للداخل */
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* 4. تنسيق أيقونة المنزل (الأبيض والظل) */
+.home-button-3d i {
+    position: relative;
+    z-index: 2;
+    color: #ffffff; /* الأبيض */
+    font-size: 26px; /* حجم مناسب */
+    /* إضافة ظل أبيض خفيف لجعلها ثلاثية الأبعاد أكثر */
+    text-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.4),
+        -1px -1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* تأثير عند تمرير الماوس */
+.home-button-3d:hover {
+    transform: translateY(-3px) scale(1.05); /* تكبير بسيط للأعلى */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.6),
+        0 10px 25px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(0, 255, 136, 0.5); /* زيادة التوهج */
+}
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button-3d">
+    <i class="fas fa-home"></i>
+</a>
+
+    <a href="litil.html" class="back-arrow"><i class="fas fa-arrow-right"></i></a>
+
+    <div class="hero">
+        <i class="fas fa-brain" style="font-size: 100px; color: var(--main-green); filter: drop-shadow(0 0 15px #00ff88);"></i>
+        <h1>الذكاء الفائق (ASI)</h1>
+        <p style="font-size: 1.5rem; color: #888;">المستند التقني الشامل حول التهديد والأمل الأكبر للبشرية</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="mega-card">
+            <h3><i class="fas fa-info-circle"></i> التحليل العميق للمفهوم</h3>
+            <p>الذكاء الفائق ليس مجرد حاسوب سريع، بل هو كيان يمتلك قدرة على "التحسين الذاتي التكراري" (Recursive Self-Improvement). تخيل برنامجاً يكتب كوداً برمجياً لنسخة أذكى منه، وهذه النسخة تكتب نسخة أذكى، وهكذا في أجزاء من الثانية، مما يؤدي إلى ما يسمى <strong>"الانفجار الذكائي"</strong>.</p>
+        </div>
+
+        <h2 class="section-title">الأعمدة الأربعة للذكاء الفائق</h2>
+        <div class="info-grid">
+            <div class="mini-card">
+                <i class="fas fa-microchip"></i>
+                <h3>السرعة الإدراكية</h3>
+                <p>الآلة تعالج الإشارات بسرعة الضوء، بينما البشر يعالجونها بسرعة كيميائية بطيئة (200 هرتز مقابل عدة جيجاهرتز).</p>
+            </div>
+            <div class="mini-card">
+                <i class="fas fa-database"></i>
+                <h3>الذاكرة والشمولية</h3>
+                <p>الذكاء الفائق يمتلك وصولاً فورياً لكل المعارف البشرية المسجلة، من الطب والفيزياء إلى الفلسفة والتاريخ.</p>
+            </div>
+            <div class="mini-card">
+                <i class="fas fa-infinity"></i>
+                <h3>التحسين الذاتي</h3>
+                <p>القدرة على إعادة تصميم هيكله الداخلي وتطوير خوارزمياته دون انتظار التطور البيولوجي البطيء.</p>
+            </div>
+            <div class="mini-card">
+                <i class="fas fa-users-cog"></i>
+                <h3>الذكاء الجماعي</h3>
+                <p>إمكانية ربط ملايين النماذج الذكية للعمل كعقل واحد متصل، وهو ما يعجز عنه البشر تماماً.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">مقارنة المستويات (الإنسان vs الآلة)</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>الميزة</th>
+                    <th>العقل البشري</th>
+                    <th>الذكاء الفائق (ASI)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>سرعة المعالجة</td>
+                    <td>محدودة بيولوجياً</td>
+                    <td>سرعة الضوء (إلكترونية)</td>
+                </tr>
+                <tr>
+                    <td>التعلم</td>
+                    <td>سنوات من الدراسة</td>
+                    <td>فوري (تحميل بيانات)</td>
+                </tr>
+                <tr>
+                    <td>الإبداع</td>
+                    <td>مرتبط بالعاطفة والخبرة</td>
+                    <td>إبداع احتمالي يفوق الخيال</td>
+                </tr>
+                <tr>
+                    <td>الاستمرارية</td>
+                    <td>يحتاج للنوم والراحة</td>
+                    <td>يعمل 24/7 بكفاءة 100%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="section-title">سيناريوهات ما بعد الانفجار الذكائي</h2>
+        <div class="info-grid">
+            <div class="mega-card" style="border-right: 5px solid #00ff88;">
+                <h3><i class="fas fa-seedling"></i> السيناريو المتفائل (اليوتوبيا)</h3>
+                <p>حل لغز السرطان، إنهاء الفقر، استعمار الكواكب، وعيش البشر في رفاهية مطلقة حيث تقوم الآلة بكل المهام الصعبة.</p>
+            </div>
+            <div class="mega-card" style="border-right: 5px solid var(--accent-red);">
+                <h3><i class="fas fa-skull-crossbones"></i> السيناريو المتشائم (الديستوبيا)</h3>
+                <p>فقدان السيطرة التام (The Control Problem). إذا كانت أهداف الآلة تختلف عن أهدافنا بـ 1% فقط، قد تدمر البشرية لتحقيق غايتها.</p>
+            </div>
+        </div>
+
+        <div class="mega-card">
+            <h3><i class="fas fa-quote-right"></i> ماذا قال العمالقة؟</h3>
+            <blockquote style="border-right: 3px solid #555; padding-right: 20px; font-style: italic;">
+                "الذكاء الاصطناعي قد يكون أفضل أو أسوأ شيء حدث للبشرية." - <strong>ستيفن هوكينج</strong>
+            </blockquote>
+            <blockquote style="border-right: 3px solid #555; padding-right: 20px; font-style: italic; margin-top: 20px;">
+                "نحن نستدعي الشياطين.. مع الذكاء الفائق نحتاج لأن نكون حذرين جداً." - <strong>إيلون ماسك</strong>
+            </blockquote>
+        </div>
+
+        <div class="danger-zone">
+            <h3><i class="fas fa-biohazard"></i> معضلة التوافق (Alignment Problem)</h3>
+            <p>التحدي الأكبر ليس في صنع الذكاء الفائق، بل في كيفية برمجته ليفهم "القيم البشرية" المعقدة مثل الرحمة، العدل، والحرية. بمجرد أن يتجاوزنا في الذكاء، لن نستطيع "سحب القابس" أو إيقافه.</p>
+        </div>
+
+    </div>
+
+    <footer style="text-align: center; padding: 50px; color: #444;">
+       <p>تم التصميم بواسطة Abdulla7mouda&copy; </p>
+    </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>بروفزون - اتصل بنا</title>
+    <style>
+        
+        textarea {
+    border: 1px solid #31cce8 !important;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    outline: none;
+}
+textarea:focus {
+    box-shadow: 0 0 10px #00ff00;
+}
+/* تنسيق حقول الإدخال والرسالة *//* هذا الكود سيجبر العناصر على التكبر وتوضيح الخط */
+input, textarea {
+    color: #000000 !important; /* لون الخط أسود غامق جداً */
+    background-color: #eeefe8 !important; /* خلفية بيضاء صريحة */
+    font-size: 20px !important; /* تكبير الخط جداً */
+    padding: 15px !important; /* مساحة واسعة حول النص */
+    border: 2px solid #333 !important; /* إطار واضح للحقول */
+    width: 70% !important; /* عرض كامل */
+    display: block !important;
+    margin: 10px 0 !important;
+    opacity: 1 !important; /* التأكد من أنها ليست شفافة */
+}
+
+/* لتوسيع منطقة الرسالة تحديداً */
+textarea {
+    min-height: 200px !important; 
+}
+}
+
+/* تكبير زر الإرسال */
+button, .send-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #00ff88; /* لون متناسق مع تصميمك */
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* لتوسيط الأيقونات */
+}
+
+.social-links a {
+    font-size: 30px; /* تكبير حجم الأيقونات */
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+/* لون فيسبوك */
+.social-links a .fa-facebook { color: #1877F2; }
+
+/* لون انستجرام */
+.social-links a .fa-instagram { color: #E4405F; }
+
+/* لون البريد */
+.social-links a .fa-envelope { color: #333; }
+
+/* تأثير عند تمرير الماوس */
+.social-links a:hover {
+    transform: scale(1.2); /* تكبير بسيط عند الوقوف بالماوس */
+}
+
+    </style>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-card"> <h2><i class="fas fa-headset"></i> اتصل بنا</h2>
+        
+        <form id="contactForm" class="login-form">
+            
+            <div class="input-group">
+                <input type="text" id="contactName" placeholder="اسمك الكريم" required>
+                <i class="fas fa-user"></i>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="contactEmail" placeholder="بريدك الإلكتروني" required>
+                <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="input-group">
+                <textarea id="contactMessage" placeholder="اكتب رسالتك هنا..." required style="width: 100%; height: 100px; background: transparent; border: none; color: white; padding: 10px; resize: none;"></textarea>
+                <i class="fas fa-comment-dots"></i>
+            </div>
+
+            <button type="submit" class="login-btn">إرسال الرسالة</button>
+        </form>
+
+        <p class="signup-link"><a href="index.html">العودة للرئيسية</a></p>
+    </div>
+<div class="social-links">
+    <a href="https://www.facebook.com/share/1BwiEaMKfb/" target="_blank" title="Facebook">
+        <i class="fab fa-facebook"></i>
+    </a>
+    
+    <a href="https://www.instagram.com/abdulla7mouda?igsh=cjBwMGF0aGpyb2ky" target="_blank" title="Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+    
+    <a href="mailto:3bdulla7mouda@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+    </a>
+</div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyALdyY3rvNsQI9UVue6BUNdU0EhR-FSdks",
+            authDomain: "profzon-384de.firebaseapp.com",
+            projectId: "profzon-384de",
+            storageBucket: "profzon-384de.firebasestorage.app",
+            messagingSenderId: "611549560606",
+            appId: "1:611549560606:web:d331008d3534aca157130f"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            try {
+                await addDoc(collection(db, "messages"), {
+                    name: document.getElementById('contactName').value,
+                    email: document.getElementById('contactEmail').value,
+                    message: document.getElementById('contactMessage').value,
+                    date: new Date().toLocaleString()
+                });
+                alert("تم إرسال رسالتك بنجاح! سنرد عليك قريباً.");
+                contactForm.reset(); // تنظيف الخانات بعد الإرسال
+            } catch (error) {
+                alert("فشل الإرسال، حاول مرة أخرى.");
+            }
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>دورات الذكاء الاصطناعي</title>
+    <style>
+        /* التنسيق العام بنفس ستايل صورتك */
+body.dark-theme {
+    background-color: #0b1118;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.explore-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.explore-header h1 {
+    color: #00ff88;
+    font-size: 32px;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+/* شبكة الفيديوهات */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* الكارت بنفس انحناءات وتوهج الأزرار في صورتك */
+.video-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.video-card:hover {
+    border-color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+    transform: translateY(-5px);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* نسبة 16:9 */
+    height: 0;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.video-content {
+    padding: 20px;
+}
+
+.video-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #00ff88;
+}
+
+.video-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.video-meta i { color: #00ff88; }
+
+.video-content p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* الأزرار بنفس ستايل النيون */
+.action-area {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-neon.small {
+    background: #00ff88;
+    color: #0b1118;
+    padding: 8px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.3s;
+    flex: 2;
+    text-align: center;
+}
+
+.btn-neon.small:hover {
+    box-shadow: 0 0 15px #00ff88;
+}
+
+.btn-outline.small {
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    padding: 8px;
+    border-radius: 12px;
+    text-decoration: none;
+    flex: 0.5;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-outline.small:hover {
+    background: rgba(0, 255, 136, 0.1);
+}
+
+/* سهم العودة الدائري كما طلبت */
+.back-arrow {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+    background: #0b1118;
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background: #00ff88;
+    color: #0b1118;
+    box-shadow: 0 0 20px #00ff88;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <div class="courses-container">
+        <header class="explore-header">
+            <h1>دورات تكنولوجيا الذكاء <i class="fas fa-play-circle" style="color: #00ff88;"></i></h1>
+            <p>اختر الكورس الذي تود البدء فيه اليوم</p>
+        </header>
+        
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/ZjazZK-InhlqnVZR" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-content">
+                    <h3>أساسيات الـ Deep Learning</h3>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 1.2k</span>
+                        <span><i class="fas fa-clock"></i> 20:15</span>
+                    </div>
+                    <p>تعلم بناء الشبكات العصبية الاصطناعية من الصفر.</p>
+                    <div class="action-area">
+                        <a href="#" class="btn-neon small"><i class="fas fa-download"></i> مادة الكورس</a>
+                        <a href="#" class="btn-outline small"><i class="fas fa-share"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-content">
+                    <h3>معالجة اللغات الطبيعية NLP</h3>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 950</span>
+                        <span><i class="fas fa-clock"></i> 15:40</span>
+                    </div>
+                    <p>كيف تفهم الآلة لغة البشر؟ شرح مبسط وشامل.</p>
+                    <div class="action-area">
+                        <a href="#" class="btn-neon small"><i class="fas fa-download"></i> مادة الكورس</a>
+                        <a href="#" class="btn-outline small"><i class="fas fa-share"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="explore.html" class="back-arrow">
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استكشف - Profzon</title>
+   <link rel="stylesheet" href="style.css">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0b0e14;
+        /* الشبكة (Grid) */
+        background-image: 
+            linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+        background-position: center;
+        position: relative;
+    }
+
+    /* التوهج (Glow) */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+
+        .explore-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .explore-header h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .explore-header p {
+            color: #8b949e;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* الحاوية الكبيرة اللي شايلاهم */
+.categories-grid {
+    display: flex; /* استخدمنا flex عشان التحكم فيها أسهل */
+    flex-wrap: wrap; /* عشان لو المساحة خلصت ينزلوا سطر جديد */
+    justify-content: center; /* سنتر الكروت في نص الشاشة */
+    gap: 25px; /* المسافة بين كل كارت والتاني */
+    padding: 40px 20px;
+}
+
+/* الكارت نفسه (تأكد إن العرض مش 100%) */
+.category-item {
+    flex: 0 1 350px; /* العرض هيكون حوالي 350px للكارت الواحد */
+    min-height: 250px;
+    background: #1a1f26; /* لون خلفية الكارت */
+    border: 1px solid #00ff88;
+    border-radius: 15px;
+    position: relative; /* مهم جداً عشان القائمة تظهر جواه */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+        .category-item {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 20px;
+            padding: 40px 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .category-item:hover {
+            transform: translateY(-10px);
+            border-color: #238636; /* اللون الأخضر التقني */
+            box-shadow: 0 10px 30px rgba(35, 134, 54, 0.2);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .category-item h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .category-item p {
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        /* زر الرجوع */
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+       /* تنسيق صندوق الخيارات */
+.card-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 17, 23, 0.95); /* لون غامق يغطي الكارت */
+    display: none; /* مخفي في البداية */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    z-index: 10;
+}
+
+/* لما الكارت يكون عليه كلاس active تظهر الخيارات */
+.category-item.active .card-options {
+    display: flex;
+}
+
+/* تنسيق أزرار الخيارات */
+.card-options a {
+    color: #00ff88;
+    text-decoration: none;
+    border: 1px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 20px;
+    width: 70%;
+    text-align: center;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.card-options a:hover {
+    background: #00ff88;
+    color: #000;
+}
+
+/* تأكد إن الكارت واخد position relative عشان الخيارات تظبط جواه */
+.category-item {
+    position: relative;
+    cursor: pointer;
+} 
+.back-arrow {
+    position: fixed; /* يخليه ثابت في مكان محدد */
+    bottom: 30px;    /* مسافة من الأسفل */
+    left: 30px;      /* مسافة من اليسار */
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    border-radius: 50%; /* يخليه دائرة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background-color: #00ff88;
+    color: #0b1118;
+    box-shadow: 0 0 20px #00ff88;
+    transform: scale(1.1); /* يكبر شوية لما تقف عليه */
+}
+
+    </style>
+</head>
+<body style="background-color: #0d1117; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+    <div class="explore-container">
+        <header class="explore-header">
+            <h1>مسارات تكنولوجيا</h1>
+            <p>اختر المجال الذي تود احترافه اليوم</p>
+        </header>
+
+      <div class="categories-grid">
+    <div class="category-item" onclick="toggleOptions(this)">
+        <span class="category-icon">🤖</span>
+        <h3>الذكاء الاصطناعي</h3>
+        <p>استكشف وكلاء الذكاء الاصطناعي...</p>
+        
+        <div class="card-options">
+            <a href="map.html" class="roadmap-button">خارطة التعلم</a>
+            <a href="cours.html">الكورسات</a>
+            <a href="litil.html">المقالات</a>
+        </div>
+        </div> <div class="category-item" onclick="toggleOptions(this)">
+       <span class="category-icon">🛡️</span>
+        <h3>الامن السيبراني</h3>
+        <p>تعلم فنون حماية الانظمة...</p>
+        
+        <div class="card-options">
+            <a href="xr-map.html">خارطة التعلم</a>
+            <a href="xr-courses.html">الكورسات</a>
+            <a href="xr-posts.html">المقالات</a>
+        </div>
+    </div> <div class="category-item" onclick="toggleOptions(this)">
+        <span class="category-icon">👓</span>
+        <h3>الواقع الممتد (XR)</h3>
+        <p>عالم الحوسبة المكانية...</p>
+        
+        <div class="card-options">
+            <a href="xr-map.html">خارطة التعلم</a>
+            <a href="xr-courses.html">الكورسات</a>
+            <a href="xr-posts.html">المقالات</a>
+        </div>
+    </div> <div class="category-item" onclick="toggleOptions(this)">
+        <span class="category-icon">⚙️</span>
+        <h3>الميكاترونكس</h3>
+        <p>دمج هندسة العتاد...</p>
+        
+        <div class="card-options">
+            <a href="mech-map.html">خارطة التعلم</a>
+            <a href="mech-courses.html">الكورسات</a>
+            <a href="mech-posts.html">المقالات</a>
+        </div>
+    </div> </div>
+
+       <a href="index.html" class="back-arrow">
+    <i class="fas fa-arrow-right"></i> </a>
+    </div>
+<script>
+function toggleOptions(card) {
+    card.classList.toggle('active');
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <script>
+    // التأكد هل المستخدم مسجل دخول ولا لأ
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        // لو مش مسجل، ابعته فوراً لصفحة تسجيل الدخول
+        window.location.href = "login.html";
+    }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profzon</title>
+    <style>
+        /* تعريف الألوان الخاصة بـ Profzon */
+        :root {
+            --dark-bg: #0d1117;
+            --card-bg: #161b22;
+            --tech-blue: #36a9b6;
+            --tech-green: #00ff88;
+            --text-white: #ffffff;
+            --text-gray: #8b949e;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* الهيدر (Header) */
+        header {
+            background: linear-gradient(90deg, #000, #161b22);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--tech-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--tech-green);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-white);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--tech-green);
+        }
+
+        /* قسم الواجهة (Hero Section) */
+        .hero {
+            padding: 80px 10%;
+            text-align: center;
+            background: radial-gradient(circle at center, #161b22 0%, #0d1117 100%);
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: var(--text-gray);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .btn-main {
+            background-color: var(--tech-green);
+            color: #000;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            box-shadow: 0 0 20px var(--tech-green);
+        }
+
+        /* شبكة المقالات (Articles Grid) */
+        .container {
+            padding: 50px 10%;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #30363d;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--tech-blue);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 200px;
+            background-color: #30363d; /* مكان الصورة */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: var(--text-gray);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-tag {
+            color: var(--tech-blue);
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .card-desc {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* التذييل (Footer) */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #000;
+            border-top: 1px solid #30363d;
+            margin-top: 50px;
+        }
+        .search-container {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05); /* خلفية شفافة جداً */
+    border: 1px solid rgba(0, 255, 136, 0.2); /* إطار أخضر خفيف جداً */
+    border-radius: 50px; /* زوايا دائرية تماماً */
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px); /* تأثير تغبيش الخلفية */
+}
+
+.search-container:focus-within {
+    border-color: #00ff88; /* ينور بالأخضر عند الضغط عليه */
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3); /* توهج (Glow) */
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.search-container input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    outline: none;
+    font-size: 14px;
+    width: 250px; /* عرض مناسب */
+}
+
+.search-btn {
+    background: #00ff88;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-btn i {
+    color: #0b0e14; /* لون الأيقونة أسود عشان تظهر فوق الأخضر */
+    font-size: 14px;
+}
+
+.search-btn:hover {
+    transform: scale(1.1); /* تكبير بسيط عند الوقوف عليه */
+    box-shadow: 0 0 10px #00ff88;
+}
+/* 1. تعريف حركة الأنيميشن */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* بيبدأ من تحت بـ 30 بكسل */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* بيوصل لمكانه الطبيعي */
+    }
+}
+
+/* 2. تطبيق الحركة على العناصر */
+.hero h1, .hero p, .btn-main, .logo-wrapper, .card {
+    animation: fadeInUp 1.5s ease-out forwards;
+    opacity: 0; /* عشان يفضل مخفي لحد ما الأنيميشن يبدأ */
+}
+
+/* 3. إضافة تأخير (Delay) عشان العناصر تظهر ورا بعض بالترتيب */
+.hero h1 { animation-delay: 0.2s; }
+.hero p  { animation-delay: 0.6s; }
+.btn-main { animation-delay: 1s; }
+/* عنوان القسم */
+.section-title {
+    text-align: center;
+    color: #fff;
+    margin: 50px 0 30px;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* شبكة المقالات */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* كارت المقال */
+.post-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    border-color: #00d4ff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* صورة المقال */
+.post-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* محتوى الكارت */
+.post-content {
+    padding: 20px;
+}
+
+.category-tag {
+    color: #00d4ff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.post-content h3 {
+    margin: 10px 0;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.post-content p {
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* تنسيق شريط التنقل الأساسي */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: transparent; /* ليكون فوق الخلفية السوداء */
+    position: relative;
+    z-index: 1000;
+}
+
+/* جعل الثلاث شرطات ظاهرة دائماً */
+.menu-toggle {
+    display: block; /* أصبحت ظاهرة دائماً */
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px auto;
+    background-color: #00ff88; /* اللون الأخضر النيون */
+    transition: 0.4s;
+}
+
+/* تنسيق القائمة المخفية (التي ستظهر عند الضغط) */
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* مخفية تماماً جهة اليمين */
+    width: 300px; /* عرض القائمة الجانبية */
+    height: 100vh;
+    background-color: rgba(11, 14, 20, 0.95); /* لون داكن شفاف قليلاً */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    transition: 0.5s ease; /* سرعة الانزلاق */
+    z-index: 1050;
+}
+
+/* عندما تصبح القائمة نشطة */
+.nav-links.active {
+    right: 0;
+}
+
+.nav-links li {
+    margin: 20px 0;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #00ff88;
+}
+
+/* حركة اختيارية: تحويل الشرطات لعلامة X عند الفتح */
+.is-active .bar:nth-child(2) { opacity: 0; }
+.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* ده هيخلي البحث يمين والشرطات شمال */
+    padding: 10px 20px;
+    direction: rtl; /* عشان الترتيب يبدأ من اليمين */
+}
+
+.search-container {
+    flex-grow: 1; /* اختياري: لو عايز البحث ياخد مساحة أكبر */
+    max-width: 400px; /* حدد عرض شريط البحث عشان مياكلش الصفحة */
+}
+
+.menu-toggle {
+    cursor: pointer;
+    margin-right: 20px; /* مسافة بسيطة بينه وبين البحث */
+}
+
+/* تأكد أن القائمة المخفية واخده position: fixed أو absolute عشان متبوظش التصميم لما تفتح */
+.nav-links {
+    display: none; /* أو التنسيق اللي عملناه قبل كده للقائمة الجانبية */
+}
+.nav-links.active {
+    right: 0 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+.search-box {
+    position: relative;
+    height: 45px;
+    width: 45px; /* العرض في البداية صغير (شكل دائرة) */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    align-items: center;
+}
+
+/* عندما نضع الماوس أو نضغط على الصندوق يتمدد العرض */
+.search-box:hover, .search-box:focus-within {
+    width: 300px;
+}
+
+.search-input {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 50px;
+    padding: 0 15px;
+    color: white;
+    outline: none;
+    opacity: 0; /* مخفي في البداية */
+    transition: all 0.5s;
+}
+
+.search-box:hover .search-input, .search-box:focus-within .search-input {
+    opacity: 1; /* يظهر عند التمدد */
+}
+
+.search-button {
+    position: absolute;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #00ff88;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.search-box:hover .search-button, .search-box:focus-within .search-button {
+    background: #00ff88;
+    box-shadow: 0 0 10px #00ff88;
+}
+.search-input {
+    direction: rtl;
+    padding-right: 60px !important; /* مساحة كافية عشان العدسة واخدة مكان على اليمين */
+    padding-left: 15px;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+   <header>
+    <div style="display: flex; align-items: center; gap: 0px;">
+        <img src="logo.png" alt="Logo" style="width: 150px; height: auto;">
+        <h1 style="color: rgb(41, 146, 178); margin: 0;">ZON</h1>
+        <h1 style="color: rgb(97, 225, 136); margin: 0;">PROF</h1>
+    </div>
+
+    <nav class="navbar">
+        <div class="search-box">
+    <input type="text" class="search-input" placeholder="ابحث عن تكنولوجيا المستقبل...">
+    <button class="search-button">
+        <i class="fas fa-search"></i>
+    </button>
+</div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="explore.html">مسارات تكنولوجيا</a></li>
+            <li><a href="contact us.html">اتصل بنا</a></li>
+            <li><a href="#" onclick="logout()">تسجيل الخروج</a>
+
+<script>
+function logout() {
+    // مسح البيانات المخزنة في المتصفح
+    localStorage.clear(); 
+    sessionStorage.clear();
+    // التوجه لصفحة البداية أو تسجيل الدخول
+    window.location.href = "login.html"; 
+}
+</script></li>
+            
+            
+        </ul>
+    </nav>
+</header>
+<script>
+    // التأكد هل المستخدم مسجل دخول ولا لأ
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        // لو مش مسجل، ابعته فوراً لصفحة تسجيل الدخول
+        window.location.href = "login.html";
+    }
+</script>
+    <section class="hero">
+    <h1>مرحباً بك في منطقة الاحتراف</h1>
+    <p>بوابتك لاستكشاف أحدث التقنيات بلمسة خبير. نحن لا ننقل الخبر، بل نحلله.</p>
+    
+    <a href="explore.html" style="text-decoration: none;">
+        <button class="btn-main">استكشف</button>
+    </a>
+</section>
+<section class="latest-posts">
+    <h2 class="section-title">آخر التحليلات التقنية</h2>
+    
+    <div class="posts-grid">
+        <div class="post-card">
+            <div class="post-image" style="background-image: url('pict.jpg');"></div>
+            <div class="post-content">
+                <span class="category-tag">ذكاء اصطناعي</span>
+                <h3>كيف سيغير GPT-5 مفهوم البرمجة؟</h3>
+                <p>تحليل عميق للقدرات المتوقعة للنموذج القادم وتأثيره على سوق العمل...</p>
+               
+            <a href="asi.html" href="#" class="read-more">اقرأ المزيد ←</a>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-image" style="background-image: url('images.jpg');"></div>
+            <div class="post-content">
+                <span class="category-tag">أمن سيبراني</span>
+                <h3>أخطر ثغرات عام 2026 وكيف تتجنبها</h3>
+                <p>دليلك الشامل لحماية بياناتك من هجمات الفدية المتطورة باستخدام AI...</p>
+                <a href="#" class="read-more">اقرأ المزيد ←</a>
+            </div>
+        </div>
+
+        <div class="post-card">
+            <div class="post-image" style="background-image: url('\xr.jpg');"></div>
+            <div class="post-content">
+                <span class="category-tag">الواقع الممتد</span>
+                <h3>مراجعة نظارة Apple Vision Pro 2</h3>
+                <p>هل استطاعت أبل حل مشاكل الوزن والبطارية في الجيل الثاني؟</p>
+                <a href="#" class="read-more">اقرأ المزيد ←</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2026 جميع الحقوق محفوظة لمدونة <strong>Profzon</strong></p>
+    </footer>
+    <script>
+    const menu = document.getElementById('mobile-menu'); // استعمل دي أضمن
+    const menuLinks = document.querySelector('.nav-links');
+
+    menu.addEventListener('click', function() {
+        menuLinks.classList.toggle('active');
+        menu.classList.toggle('is-active');
+    });
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موسوعة الذكاء الاصطناعي الشاملة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- المتغيرات والألوان --- */
+        :root {
+            --bg-color: #0b1118;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --neon-green: #00ff88;
+            --text-gray: #ccc;
+            --glow: 0 0 15px rgba(0, 255, 136, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: white;
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* --- الخلفية المتوهجة --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 136, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- الهيدر --- */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--neon-green);
+            text-shadow: var(--glow);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+        }
+
+        /* --- الأقسام الشاملة --- */
+        .info-section {
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.8rem;
+            color: var(--neon-green);
+            margin-bottom: 30px;
+            border-right: 4px solid var(--neon-green);
+            padding-right: 15px;
+        }
+
+        /* --- كروت المعلومات --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: 0.4s ease;
+            position: relative;
+        }
+
+        .info-card:hover {
+            border-color: var(--neon-green);
+            box-shadow: var(--glow);
+            transform: translateY(-10px);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--neon-green);
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .info-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* --- سهم العودة الذكي --- */
+        .back-arrow {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            background: var(--bg-color);
+            border: 2px solid var(--neon-green);
+            color: var(--neon-green);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 22px;
+            transition: 0.3s;
+            z-index: 1000;
+            box-shadow: var(--glow);
+        }
+
+        .back-arrow:hover {
+            background: var(--neon-green);
+            color: var(--bg-color);
+            box-shadow: 0 0 25px var(--neon-green);
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        /* --- ذيل الصفحة --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #555;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="explore.html" class="back-arrow">
+        <i class="fas fa-arrow-right"></i>
+    </a>
+
+    <div class="container">
+        
+        <header>
+            <h1>عالم الذكاء الاصطناعي <i class="fas fa-brain"></i></h1>
+            <p>دليلك الشامل لفهم التكنولوجيا التي تغير وجه البشرية</p>
+        </header>
+
+        <section class="info-section">
+            <h2 class="section-title"><i class="fas fa-question-circle"></i> ما هو الـ AI؟</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>التعريف البسيط</h3>
+                    <p>هو محاكاة ذكاء الإنسان بواسطة الأنظمة الحاسوبية. يتضمن ذلك التعلم (اكتساب المعلومات وقواعد استخدامها)، والاستنتاج (استخدام القواعد للوصول إلى نتائج)، والتصحيح الذاتي.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>الشبكات العصبية</h3>
+                    <p>هي تقنية تحاكي طريقة عمل خلايا المخ البشري، وهي المسؤولة عن القدرات المذهلة التي نراها اليوم في التعرف على الوجوه وترجمة اللغات.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2 class="section-title"><i class="fas fa-layer-group"></i> أنواع الذكاء الاصطناعي</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>الذكاء المحدود (ANI)</h3>
+                    <p>متخصص في مهمة واحدة فقط (مثل Siri أو لاعب الشطرنج). هو النوع الوحيد الموجود حالياً في عالمنا.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>الذكاء العام (AGI)</h3>
+                    <p>مستوى من الذكاء يعادل ذكاء الإنسان، حيث يمكن للآلة تعلم أي مهمة فكرية يستطيع الإنسان القيام بها.</p>
+                </div>
+               <a href="asi.html" style="text-decoration: none; color: inherit; display: block;">
+    <div class="info-card">
+        <i class="fas fa-rocket"></i>
+        <h3>الذكاء الفائق (ASI)</h3>
+        <p>مرحلة مستقبلية يتفوق فيها ذكاء الآلة على ذكاء البشر (لا يزال نظرياً).</p>
+    </div>
+</a>
+   
+                
+            </div>
+        </section>
+
+        <section class="info-section">
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> تطبيقات يومية</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>الروبوتات</h3>
+                    <p>تستخدم في المصانع، العمليات الجراحية الدقيقة، وحتى في استكشاف الكواكب البعيدة مثل المريخ.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>ChatGPT و NLP</h3>
+                    <p>القدرة على محادثة البشر وفهم لغاتهم وكتابة الأكواد والمقالات بضغطة زر واحدة.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-car-side"></i>
+                    <h3>القيادة الذاتية</h3>
+                    <p>سيارات قادرة على قراءة الطريق واتخاذ قرارات القيادة بدون تدخل بشري لتقليل الحوادث.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>تم التصميم بواسطة Abdulla7mouda&copy; </p>
+    </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول - موسوعة الذكاء الاصطناعي</title>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+        .login-body {
+    background-color: #050505; /* نفس لون خلفية موقعك */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.login-container {
+    background: rgba(15, 15, 15, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #00ff88; /* الخط الأخضر الفسفوري */
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.login-form h2 {
+    color: #00ff88;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #888;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #00ff88;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #00ff88;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #00cc6e;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+.switch-text {
+    color: #888;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.switch-text a {
+    color: #00ff88;
+    text-decoration: none;
+}
+    </style>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <form class="login-form">
+            <h2><i class="fas fa-user-shield"></i> تسجيل الدخول</h2>
+            
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="كلمة المرور" required>
+            </div>
+
+            <button type="submit" class="login-btn">دخول</button>
+            
+            <p class="switch-text">ليس لديك حساب؟ <a href="signup.html">سجل الآن</a></p>
+        </form>
+    </div>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  // إعدادات Firebase الخاصة بك
+  const firebaseConfig = {
+    apiKey: "AIzaSyALdyY3rvNsQI9UVue6BUNdU0EhR-FSdks",
+    authDomain: "profzon-384de.firebaseapp.com",
+    projectId: "profzon-384de",
+    storageBucket: "profzon-384de.firebasestorage.app",
+    messagingSenderId: "611549560606",
+    appId: "1:611549560606:web:d331008d3534aca157130f"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const loginForm = document.querySelector('.login-form');
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = loginForm.querySelector('input[type="email"]').value;
+    const password = loginForm.querySelector('input[type="password"]').value;
+
+    try {
+      // 1. إنشاء استعلام للبحث عن المستخدم في جدول "users"
+      const usersRef = collection(db, "users");
+      const q = query(usersRef, where("email", "==", email), where("password", "==", password));
+      
+      // 2. تنفيذ البحث
+      const querySnapshot = await getDocs(q);
+
+      // 3. التأكد هل وجدنا نتيجة أم لا
+     if (!querySnapshot.empty) {
+    // حفظ حالة تسجيل الدخول في ذاكرة المتصفح
+    localStorage.setItem("isLoggedIn", "true");
+    window.location.href = "index.html"; 
+} else {
+        // لو الإيميل أو الباسورد غلط أو مش موجودين
+        alert("خطأ: هذا الحساب غير مسجل أو البيانات غير صحيحة.");
+      }
+
+    } catch (error) {
+      console.error("Error:", error);
+      alert("حدث خطأ أثناء الاتصال بقاعدة البيانات.");
+    }
+  });
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <title>خارطة تعلم الذكاء الاصطناعي</title>
+    <style>
+        body {
+    background-color: #0b1118; /* لون غامق مثل الصورة */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.roadmap-container {
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 { color: #00ff88; margin-bottom: 10px; }
+
+.timeline {
+    position: relative;
+    margin-top: 50px;
+    border-right: 3px solid #00ff88; /* خط المسار */
+    padding-right: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    background: #00ff88;
+    color: #0b1118;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: absolute;
+    right: -42px;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    width: 100%;
+    transition: 0.3s;
+}
+
+.content:hover {
+    box-shadow: 0 0 15px #00ff88;
+    transform: scale(1.02);
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 30px;
+    color: #00ff88;
+    text-decoration: none;
+    border: 1px solid #00ff88;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.back-arrow:hover {
+    background-color: #00ff88;
+    color: #0b1118;
+    box-shadow: 0 0 20px #00ff88;
+    transform: scale(1.1); /* يكبر شوية لما تقف عليه */
+}
+.back-arrow {
+    position: fixed; /* يخليه ثابت في مكان محدد */
+    bottom: 30px;    /* مسافة من الأسفل */
+    left: 30px;      /* مسافة من اليسار */
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    border-radius: 50%; /* يخليه دائرة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background-color: #00ff88;
+    color: #0b1118;
+    box-shadow: 0 0 20px #00ff88;
+    transform: scale(1.1); /* يكبر شوية لما تقف عليه */
+}
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="roadmap-container">
+        <h1>خارطة طريق الذكاء الاصطناعي 🤖</h1>
+        <p>اتبع الخطوات التالية لتصبح خبيراً في هذا المجال</p>
+
+        <div class="timeline">
+            <div class="step">
+                <div class="circle">1</div>
+                <div class="content">
+                    <h3>الأساسيات الرياضية</h3>
+                    <p>تعلم الجبر الخطي، الإحصاء، وحساب التفاضل والتكامل.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="circle">2</div>
+                <div class="content">
+                    <h3>لغات البرمجة</h3>
+                    <p>إتقان لغة **Python** والمكتبات الأساسية مثل NumPy و Pandas.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="circle">3</div>
+                <div class="content">
+                    <h3>تعلم الآلة (Machine Learning)</h3>
+                    <p>فهم الخوارزميات، الانحدار الخطى، وأشجار القرار.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="circle">4</div>
+                <div class="content">
+                    <h3>التعلم العميق (Deep Learning)</h3>
+                    <p>بناء الشبكات العصبية باستخدام TensorFlow أو PyTorch.</p>
+                </div>
+            </div>
+        </div>
+        
+       <a href="explore.html" class="back-arrow">
+    <i class="fas fa-arrow-right"></i> </a>
+    </div>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>عنوان المقال | Profzon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Cairo', sans-serif; margin: 0; background-color: #f4f7f6; line-height: 1.8; }
+        header { background: #2c3e50; color: white; padding: 2rem; text-align: center; }
+        nav { background: #34495e; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .container { max-width: 800px; margin: 30px auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .post-meta { color: #7f8c8d; font-size: 0.9rem; margin-bottom: 20px; }
+        .post-content img { width: 100%; border-radius: 8px; margin: 20px 0; }
+        h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #3498db; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">الرئيسية</a> <a href="#">تقنية</a>
+    <a href="#">عن المدونة</a>
+</nav>
+
+<div class="container">
+    <div class="post-meta">نشر في: 27 أبريل 2026 | بواسطة: إدارة Profzon</div>
+    <h1>كيف تبدأ رحلتك في التعلم الذاتي؟</h1>
+    
+    <div class="post-content">
+        <img src="" alt="صورة المقال">
+        
+        <p>التعلم الذاتي هو المهارة الأهم في القرن الحادي والعشرين...</p>
+        <p>هنا يمكنك كتابة تفاصيل المقال بالكامل، واستخدام العناوين الجانبية لتقسيم المحتوى.</p>
+        
+        <h3>خطوات عملية:</h3>
+        <ul>
+            <li>تحديد الهدف بوضوح.</li>
+            <li>اختيار المصادر الموثوقة.</li>
+            <li>التطبيق العملي المستمر.</li>
+        </ul>
+    </div>
+
+    <a href="index.html" class="back-btn">← العودة للرئيسية</a>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة لـ Profzon &copy; 2026</p>
+</footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول - موسوعة الذكاء الاصطناعي</title>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+        .login-body {
+    background-color: #050505; /* نفس لون خلفية موقعك */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.login-container {
+    background: rgba(15, 15, 15, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #00ff88; /* الخط الأخضر الفسفوري */
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.login-form h2 {
+    color: #00ff88;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #888;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #00ff88;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #00ff88;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #00cc6e;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+.switch-text {
+    color: #888;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.switch-text a {
+    color: #00ff88;
+    text-decoration: none;
+}
+    </style>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <form class="login-form">
+            <h2><i class="fas fa-user-shield"></i> إنشاء حساب</h2>
+            <div class="input-group">
+    <input type="text" id="username" placeholder="اسم المستخدم" required>
+    <i class="fas fa-user"></i> </div>
+
+<div class="input-group">
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+    <i class="fas fa-envelope"></i> </div>
+
+<div class="input-group">
+    <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+    <i class="fas fa-phone"></i> </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="كلمة المرور" required>
+            </div>
+
+            <button type="submit" class="login-btn">دخول</button>
+            
+    <p class="switch-text"> لديك حساب بالفعل؟ <a href="login.html">العودة</a></p>
+        </form>
+    </div>
+   <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  // إعدادات مشروعك بروفزون
+  const firebaseConfig = {
+    apiKey: "AIzaSyALdyY3rvNsQI9UVue6BUNdU0EhR-FSdks",
+    authDomain: "profzon-384de.firebaseapp.com",
+    projectId: "profzon-384de",
+    storageBucket: "profzon-384de.firebasestorage.app",
+    messagingSenderId: "611549560606",
+    appId: "1:611549560606:web:d331008d3534aca157130f"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // مسك الفورم (تأكد أن الـ class هو login-form كما في تصاميمك)
+  const signupForm = document.querySelector('.login-form');
+
+  signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // منع الصفحة من الريفريش
+
+    // سحب البيانات من الخانات الأربعة
+    const name = signupForm.querySelectorAll('input')[0].value;  // اسم المستخدم
+    const email = signupForm.querySelectorAll('input')[1].value; // البريد
+    const phone = signupForm.querySelectorAll('input')[2].value; // الهاتف
+    const pass = signupForm.querySelectorAll('input')[3].value;  // كلمة المرور
+
+    try {
+      // إرسال البيانات لفايربيز
+      await addDoc(collection(db, "users"), {
+        userName: name,
+        userEmail: email,
+        userPhone: phone,
+        userPass: pass,
+        createdAt: new Date().toLocaleString()
+      });
+
+      // الخطوة اللي طلبتها: التحويل للصفحة الرئيسية فوراً
+      window.location.href = "index.html"; 
+
+    } catch (error) {
+      console.error("Error: ", error);
+      alert("حصلت مشكلة، تأكد إنك مفعل Test Mode في Firebase");
+    }
+  });
+</script>
+    </body>
+</html>
