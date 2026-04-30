@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>دورات الذكاء الاصطناعي</title>
+    <style>
+        /* التنسيق العام بنفس ستايل صورتك */
+body.dark-theme {
+    background-color: #0b1118;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.explore-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.explore-header h1 {
+    color: #00ff88;
+    font-size: 32px;
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+/* شبكة الفيديوهات */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* الكارت بنفس انحناءات وتوهج الأزرار في صورتك */
+.video-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.video-card:hover {
+    border-color: #00ff88;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+    transform: translateY(-5px);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* نسبة 16:9 */
+    height: 0;
+    border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.video-content {
+    padding: 20px;
+}
+
+.video-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #00ff88;
+}
+
+.video-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+}
+
+.video-meta i { color: #00ff88; }
+
+.video-content p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* الأزرار بنفس ستايل النيون */
+.action-area {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-neon.small {
+    background: #00ff88;
+    color: #0b1118;
+    padding: 8px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    transition: 0.3s;
+    flex: 2;
+    text-align: center;
+}
+
+.btn-neon.small:hover {
+    box-shadow: 0 0 15px #00ff88;
+}
+
+.btn-outline.small {
+    border: 1px solid #00ff88;
+    color: #00ff88;
+    padding: 8px;
+    border-radius: 12px;
+    text-decoration: none;
+    flex: 0.5;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-outline.small:hover {
+    background: rgba(0, 255, 136, 0.1);
+}
+
+/* سهم العودة الدائري كما طلبت */
+.back-arrow {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+    background: #0b1118;
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background: #00ff88;
+    color: #0b1118;
+    box-shadow: 0 0 20px #00ff88;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <div class="courses-container">
+        <header class="explore-header">
+            <h1>دورات تكنولوجيا الذكاء <i class="fas fa-play-circle" style="color: #00ff88;"></i></h1>
+            <p>اختر الكورس الذي تود البدء فيه اليوم</p>
+        </header>
+        
+        <div class="video-grid">
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/ZjazZK-InhlqnVZR" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-content">
+                    <h3>أساسيات الـ Deep Learning</h3>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 1.2k</span>
+                        <span><i class="fas fa-clock"></i> 20:15</span>
+                    </div>
+                    <p>تعلم بناء الشبكات العصبية الاصطناعية من الصفر.</p>
+                    <div class="action-area">
+                        <a href="#" class="btn-neon small"><i class="fas fa-download"></i> مادة الكورس</a>
+                        <a href="#" class="btn-outline small"><i class="fas fa-share"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="video-content">
+                    <h3>معالجة اللغات الطبيعية NLP</h3>
+                    <div class="video-meta">
+                        <span><i class="fas fa-eye"></i> 950</span>
+                        <span><i class="fas fa-clock"></i> 15:40</span>
+                    </div>
+                    <p>كيف تفهم الآلة لغة البشر؟ شرح مبسط وشامل.</p>
+                    <div class="action-area">
+                        <a href="#" class="btn-neon small"><i class="fas fa-download"></i> مادة الكورس</a>
+                        <a href="#" class="btn-outline small"><i class="fas fa-share"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="explore.html" class="back-arrow">
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+</body>
+</html>

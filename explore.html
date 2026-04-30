@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استكشف - Profzon</title>
+   <link rel="stylesheet" href="style.css">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #0b0e14;
+        /* الشبكة (Grid) */
+        background-image: 
+            linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+        background-size: 30px 30px;
+        background-position: center;
+        position: relative;
+    }
+
+    /* التوهج (Glow) */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+
+        .explore-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .explore-header h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .explore-header p {
+            color: #8b949e;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* الحاوية الكبيرة اللي شايلاهم */
+.categories-grid {
+    display: flex; /* استخدمنا flex عشان التحكم فيها أسهل */
+    flex-wrap: wrap; /* عشان لو المساحة خلصت ينزلوا سطر جديد */
+    justify-content: center; /* سنتر الكروت في نص الشاشة */
+    gap: 25px; /* المسافة بين كل كارت والتاني */
+    padding: 40px 20px;
+}
+
+/* الكارت نفسه (تأكد إن العرض مش 100%) */
+.category-item {
+    flex: 0 1 350px; /* العرض هيكون حوالي 350px للكارت الواحد */
+    min-height: 250px;
+    background: #1a1f26; /* لون خلفية الكارت */
+    border: 1px solid #00ff88;
+    border-radius: 15px;
+    position: relative; /* مهم جداً عشان القائمة تظهر جواه */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+        .category-item {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 20px;
+            padding: 40px 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+
+        .category-item:hover {
+            transform: translateY(-10px);
+            border-color: #238636; /* اللون الأخضر التقني */
+            box-shadow: 0 10px 30px rgba(35, 134, 54, 0.2);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .category-item h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .category-item p {
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
+
+        /* زر الرجوع */
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+       /* تنسيق صندوق الخيارات */
+.card-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 17, 23, 0.95); /* لون غامق يغطي الكارت */
+    display: none; /* مخفي في البداية */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    z-index: 10;
+}
+
+/* لما الكارت يكون عليه كلاس active تظهر الخيارات */
+.category-item.active .card-options {
+    display: flex;
+}
+
+/* تنسيق أزرار الخيارات */
+.card-options a {
+    color: #00ff88;
+    text-decoration: none;
+    border: 1px solid #00ff88;
+    padding: 8px 20px;
+    border-radius: 20px;
+    width: 70%;
+    text-align: center;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.card-options a:hover {
+    background: #00ff88;
+    color: #000;
+}
+
+/* تأكد إن الكارت واخد position relative عشان الخيارات تظبط جواه */
+.category-item {
+    position: relative;
+    cursor: pointer;
+} 
+.back-arrow {
+    position: fixed; /* يخليه ثابت في مكان محدد */
+    bottom: 30px;    /* مسافة من الأسفل */
+    left: 30px;      /* مسافة من اليسار */
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    border-radius: 50%; /* يخليه دائرة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background-color: #00ff88;
+    color: #0b1118;
+    box-shadow: 0 0 20px #00ff88;
+    transform: scale(1.1); /* يكبر شوية لما تقف عليه */
+}
+
+    </style>
+</head>
+<body style="background-color: #0d1117; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+    <div class="explore-container">
+        <header class="explore-header">
+            <h1>مسارات تكنولوجيا</h1>
+            <p>اختر المجال الذي تود احترافه اليوم</p>
+        </header>
+
+      <div class="categories-grid">
+    <div class="category-item" onclick="toggleOptions(this)">
+        <span class="category-icon">🤖</span>
+        <h3>الذكاء الاصطناعي</h3>
+        <p>استكشف وكلاء الذكاء الاصطناعي...</p>
+        
+        <div class="card-options">
+            <a href="map.html" class="roadmap-button">خارطة التعلم</a>
+            <a href="cours.html">الكورسات</a>
+            <a href="litil.html">المقالات</a>
+        </div>
+        </div> <div class="category-item" onclick="toggleOptions(this)">
+       <span class="category-icon">🛡️</span>
+        <h3>الامن السيبراني</h3>
+        <p>تعلم فنون حماية الانظمة...</p>
+        
+        <div class="card-options">
+            <a href="xr-map.html">خارطة التعلم</a>
+            <a href="xr-courses.html">الكورسات</a>
+            <a href="xr-posts.html">المقالات</a>
+        </div>
+    </div> <div class="category-item" onclick="toggleOptions(this)">
+        <span class="category-icon">👓</span>
+        <h3>الواقع الممتد (XR)</h3>
+        <p>عالم الحوسبة المكانية...</p>
+        
+        <div class="card-options">
+            <a href="xr-map.html">خارطة التعلم</a>
+            <a href="xr-courses.html">الكورسات</a>
+            <a href="xr-posts.html">المقالات</a>
+        </div>
+    </div> <div class="category-item" onclick="toggleOptions(this)">
+        <span class="category-icon">⚙️</span>
+        <h3>الميكاترونكس</h3>
+        <p>دمج هندسة العتاد...</p>
+        
+        <div class="card-options">
+            <a href="mech-map.html">خارطة التعلم</a>
+            <a href="mech-courses.html">الكورسات</a>
+            <a href="mech-posts.html">المقالات</a>
+        </div>
+    </div> </div>
+
+       <a href="index.html" class="back-arrow">
+    <i class="fas fa-arrow-right"></i> </a>
+    </div>
+<script>
+function toggleOptions(card) {
+    card.classList.toggle('active');
+}
+</script>
+</body>
+</html>

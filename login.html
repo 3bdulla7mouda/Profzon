@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول - موسوعة الذكاء الاصطناعي</title>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+        .login-body {
+    background-color: #050505; /* نفس لون خلفية موقعك */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.login-container {
+    background: rgba(15, 15, 15, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #00ff88; /* الخط الأخضر الفسفوري */
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.login-form h2 {
+    color: #00ff88;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #888;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #00ff88;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #00ff88;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #00cc6e;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+.switch-text {
+    color: #888;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.switch-text a {
+    color: #00ff88;
+    text-decoration: none;
+}
+    </style>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <form class="login-form">
+            <h2><i class="fas fa-user-shield"></i> تسجيل الدخول</h2>
+            
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="كلمة المرور" required>
+            </div>
+
+            <button type="submit" class="login-btn">دخول</button>
+            
+            <p class="switch-text">ليس لديك حساب؟ <a href="signup.html">سجل الآن</a></p>
+        </form>
+    </div>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  // إعدادات Firebase الخاصة بك
+  const firebaseConfig = {
+    apiKey: "AIzaSyALdyY3rvNsQI9UVue6BUNdU0EhR-FSdks",
+    authDomain: "profzon-384de.firebaseapp.com",
+    projectId: "profzon-384de",
+    storageBucket: "profzon-384de.firebasestorage.app",
+    messagingSenderId: "611549560606",
+    appId: "1:611549560606:web:d331008d3534aca157130f"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const loginForm = document.querySelector('.login-form');
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = loginForm.querySelector('input[type="email"]').value;
+    const password = loginForm.querySelector('input[type="password"]').value;
+
+    try {
+      // 1. إنشاء استعلام للبحث عن المستخدم في جدول "users"
+      const usersRef = collection(db, "users");
+      const q = query(usersRef, where("email", "==", email), where("password", "==", password));
+      
+      // 2. تنفيذ البحث
+      const querySnapshot = await getDocs(q);
+
+      // 3. التأكد هل وجدنا نتيجة أم لا
+     if (!querySnapshot.empty) {
+    // حفظ حالة تسجيل الدخول في ذاكرة المتصفح
+    localStorage.setItem("isLoggedIn", "true");
+    window.location.href = "index.html"; 
+} else {
+        // لو الإيميل أو الباسورد غلط أو مش موجودين
+        alert("خطأ: هذا الحساب غير مسجل أو البيانات غير صحيحة.");
+      }
+
+    } catch (error) {
+      console.error("Error:", error);
+      alert("حدث خطأ أثناء الاتصال بقاعدة البيانات.");
+    }
+  });
+</script>
+</body>
+</html>

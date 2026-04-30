@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <title>خارطة تعلم الذكاء الاصطناعي</title>
+    <style>
+        body {
+    background-color: #0b1118; /* لون غامق مثل الصورة */
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+}
+
+.roadmap-container {
+    max-width: 800px;
+    text-align: center;
+}
+
+h1 { color: #00ff88; margin-bottom: 10px; }
+
+.timeline {
+    position: relative;
+    margin-top: 50px;
+    border-right: 3px solid #00ff88; /* خط المسار */
+    padding-right: 20px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.circle {
+    width: 40px;
+    height: 40px;
+    background: #00ff88;
+    color: #0b1118;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: absolute;
+    right: -42px;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    width: 100%;
+    transition: 0.3s;
+}
+
+.content:hover {
+    box-shadow: 0 0 15px #00ff88;
+    transform: scale(1.02);
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 30px;
+    color: #00ff88;
+    text-decoration: none;
+    border: 1px solid #00ff88;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.back-arrow:hover {
+    background-color: #00ff88;
+    color: #0b1118;
+    box-shadow: 0 0 20px #00ff88;
+    transform: scale(1.1); /* يكبر شوية لما تقف عليه */
+}
+.back-arrow {
+    position: fixed; /* يخليه ثابت في مكان محدد */
+    bottom: 30px;    /* مسافة من الأسفل */
+    left: 30px;      /* مسافة من اليسار */
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid #00ff88;
+    color: #00ff88;
+    border-radius: 50%; /* يخليه دائرة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+    z-index: 1000;
+}
+
+.back-arrow:hover {
+    background-color: #00ff88;
+    color: #0b1118;
+    box-shadow: 0 0 20px #00ff88;
+    transform: scale(1.1); /* يكبر شوية لما تقف عليه */
+}
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="roadmap-container">
+        <h1>خارطة طريق الذكاء الاصطناعي 🤖</h1>
+        <p>اتبع الخطوات التالية لتصبح خبيراً في هذا المجال</p>
+
+        <div class="timeline">
+            <div class="step">
+                <div class="circle">1</div>
+                <div class="content">
+                    <h3>الأساسيات الرياضية</h3>
+                    <p>تعلم الجبر الخطي، الإحصاء، وحساب التفاضل والتكامل.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="circle">2</div>
+                <div class="content">
+                    <h3>لغات البرمجة</h3>
+                    <p>إتقان لغة **Python** والمكتبات الأساسية مثل NumPy و Pandas.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="circle">3</div>
+                <div class="content">
+                    <h3>تعلم الآلة (Machine Learning)</h3>
+                    <p>فهم الخوارزميات، الانحدار الخطى، وأشجار القرار.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="circle">4</div>
+                <div class="content">
+                    <h3>التعلم العميق (Deep Learning)</h3>
+                    <p>بناء الشبكات العصبية باستخدام TensorFlow أو PyTorch.</p>
+                </div>
+            </div>
+        </div>
+        
+       <a href="explore.html" class="back-arrow">
+    <i class="fas fa-arrow-right"></i> </a>
+    </div>
+
+</body>
+</html>

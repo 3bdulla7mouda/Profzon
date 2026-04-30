@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول - موسوعة الذكاء الاصطناعي</title>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+        .login-body {
+    background-color: #050505; /* نفس لون خلفية موقعك */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.login-container {
+    background: rgba(15, 15, 15, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #00ff88; /* الخط الأخضر الفسفوري */
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.login-form h2 {
+    color: #00ff88;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #888;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #00ff88;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #00ff88;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #00cc6e;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+.switch-text {
+    color: #888;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.switch-text a {
+    color: #00ff88;
+    text-decoration: none;
+}
+    </style>
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="login-body">
+
+    <div class="login-container">
+        <form class="login-form">
+            <h2><i class="fas fa-user-shield"></i> إنشاء حساب</h2>
+            <div class="input-group">
+    <input type="text" id="username" placeholder="اسم المستخدم" required>
+    <i class="fas fa-user"></i> </div>
+
+<div class="input-group">
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+    <i class="fas fa-envelope"></i> </div>
+
+<div class="input-group">
+    <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+    <i class="fas fa-phone"></i> </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="كلمة المرور" required>
+            </div>
+
+            <button type="submit" class="login-btn">دخول</button>
+            
+    <p class="switch-text"> لديك حساب بالفعل؟ <a href="login.html">العودة</a></p>
+        </form>
+    </div>
+   <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  // إعدادات مشروعك بروفزون
+  const firebaseConfig = {
+    apiKey: "AIzaSyALdyY3rvNsQI9UVue6BUNdU0EhR-FSdks",
+    authDomain: "profzon-384de.firebaseapp.com",
+    projectId: "profzon-384de",
+    storageBucket: "profzon-384de.firebasestorage.app",
+    messagingSenderId: "611549560606",
+    appId: "1:611549560606:web:d331008d3534aca157130f"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // مسك الفورم (تأكد أن الـ class هو login-form كما في تصاميمك)
+  const signupForm = document.querySelector('.login-form');
+
+  signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // منع الصفحة من الريفريش
+
+    // سحب البيانات من الخانات الأربعة
+    const name = signupForm.querySelectorAll('input')[0].value;  // اسم المستخدم
+    const email = signupForm.querySelectorAll('input')[1].value; // البريد
+    const phone = signupForm.querySelectorAll('input')[2].value; // الهاتف
+    const pass = signupForm.querySelectorAll('input')[3].value;  // كلمة المرور
+
+    try {
+      // إرسال البيانات لفايربيز
+      await addDoc(collection(db, "users"), {
+        userName: name,
+        userEmail: email,
+        userPhone: phone,
+        userPass: pass,
+        createdAt: new Date().toLocaleString()
+      });
+
+      // الخطوة اللي طلبتها: التحويل للصفحة الرئيسية فوراً
+      window.location.href = "index.html"; 
+
+    } catch (error) {
+      console.error("Error: ", error);
+      alert("حصلت مشكلة، تأكد إنك مفعل Test Mode في Firebase");
+    }
+  });
+</script>
+    </body>
+</html>
