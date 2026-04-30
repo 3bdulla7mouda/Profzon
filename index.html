@@ -485,7 +485,36 @@ input::placeholder {
     direction: rtl;
     padding-right: 60px !important; /* مساحة كافية عشان العدسة واخدة مكان على اليمين */
     padding-left: 15px;
-}@media (max-width: 600px) {
+}@media (max-width: 600px) {@media (max-width: 600px) {
+    /* التأكد إن الهيدر بيفضل صف واحد */
+    header, .nav-container, .header-content {
+        display: flex !important;
+        flex-direction: row !important; /* يخليهم جنب بعض */
+        justify-content: space-between !important; /* يوزعهم (يمين وشمال ووسط) */
+        align-items: center !important;
+        padding: 5px 10px !important;
+        flex-wrap: nowrap !important; /* يمنعهم ينزلوا تحت بعض */
+    }
+
+    /* تصغير اللوجو (الصورة) عشان يسيي مساحة */
+    .logo img {
+        height: 35px !important; /* صغره هنا لحد ما يظبط معاك */
+        width: auto;
+    }
+
+    /* تصغير كلمة PROFZON */
+    .brand-name, h1.logo-text {
+        font-size: 1.1rem !important; /* تصغير الخط */
+        margin: 0 5px !important;
+        white-space: nowrap; /* يمنع الكلمة تنقسم سطرين */
+    }
+
+    /* تصغير زرار البحث أو الأيقونة */
+    .search-btn, .menu-toggle {
+        padding: 5px !important;
+        transform: scale(0.8); /* يصغر حجم الزرار كله */
+    }
+}
     /* هنا بنقول للموقع: لما تكون الشاشة أصغر من 600px نفذ الآتي: */
     
     body {
